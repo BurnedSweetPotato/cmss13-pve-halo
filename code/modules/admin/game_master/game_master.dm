@@ -164,6 +164,7 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 	data["selected_xeno"] = selected_xeno
 	data["selected_hive"] = selected_hive
 	data["spawn_ai"] = spawn_ai
+	data["sangheili_melee_behaviors_enabled"] = GLOB.sangheili_melee_behaviors_enabled
 	data["spawn_click_intercept"] = spawn_click_intercept
 	data["xeno_spawn_count"] = xeno_spawn_count
 
@@ -223,6 +224,10 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 		if("xeno_spawn_ai_toggle")
 			spawn_ai = !spawn_ai
+			return
+
+		if("toggle_sangheili_melee_behaviors")
+			GLOB.sangheili_melee_behaviors_enabled = !GLOB.sangheili_melee_behaviors_enabled
 			return
 
 		if("toggle_click_spawn")
@@ -321,6 +326,15 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 				return TRUE
 
 			remove_objective(objective_atom)
+
+		// Ship Section
+		if("spawn_ship_menu")
+			open_ship_spawner_dialog(ui.user)
+			return TRUE
+
+		if("place_boarding_beacon")
+			ui.user.client?.place_boarding_beacon()
+			return TRUE
 
 		//Communication Section
 		if("use_game_master_phone")

@@ -6499,6 +6499,14 @@
 	},
 /turf/open/floor/almayer/test_floor4,
 /area/dark_was_the_night/lower_cargo)
+"qB" = (
+/obj/structure/machinery/computer/boarding_console,
+/turf/open/floor/almayer/redfull,
+/area/dark_was_the_night)
+"qC" = (
+/obj/effect/vehicle_spawner/boarding_pod,
+/turf/open/floor/almayer/redfull,
+/area/dark_was_the_night)
 "qD" = (
 /obj/structure/cargo_container/unsc/main_1,
 /obj/structure/prop/unsc_crate/big/stack/alt{
@@ -7930,6 +7938,13 @@
 	},
 /turf/open/floor/almayer,
 /area/dark_was_the_night/cryo_hall)
+"xd" = (
+/obj/structure/umbilical_hatch{
+	dir = 1;
+	link_id = "dock_1"
+	},
+/turf/open/floor/almayer,
+/area/dark_was_the_night/hangar)
 "xg" = (
 /turf/open/floor/almayer/edge/smooth,
 /area/dark_was_the_night/motor_pool)
@@ -8268,6 +8283,16 @@
 	},
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/canteen)
+"yG" = (
+/obj/structure/machinery/computer/umbilical_control{
+	link_id = "dock_1";
+	pixel_y = 8
+	},
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/turf/open/floor/almayer,
+/area/dark_was_the_night/hangar)
 "yI" = (
 /obj/effect/decal/cleanable/dirt{
 	layer = 2.52
@@ -8508,6 +8533,12 @@
 	},
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/supply)
+"zO" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/turf/open/floor/almayer,
+/area/dark_was_the_night/hangar)
 "zP" = (
 /obj/structure/platform_decoration,
 /turf/open/floor/almayer,
@@ -8804,6 +8835,13 @@
 	},
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/canteen)
+"Bl" = (
+/obj/structure/machinery/light/double/blue{
+	light_color = "#dae2ff";
+	dir = 1
+	},
+/turf/open/floor/almayer/redfull,
+/area/space)
 "Bm" = (
 /obj/effect/decal/cleanable/dirt{
 	layer = 2.52
@@ -8886,6 +8924,13 @@
 "BJ" = (
 /turf/closed/wall/unsc/reinforced/hull,
 /area/dark_was_the_night/briefing)
+"BQ" = (
+/obj/structure/machinery/light/double/blue{
+	light_color = "#dae2ff";
+	dir = 1
+	},
+/turf/open/floor/almayer/redfull,
+/area/dark_was_the_night)
 "BR" = (
 /obj/structure/platform{
 	dir = 8
@@ -9153,6 +9198,10 @@
 	},
 /turf/open/floor/almayer,
 /area/dark_was_the_night/supply)
+"CU" = (
+/obj/effect/overmap/ship,
+/turf/open/space/basic,
+/area/space)
 "CW" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S"
@@ -10480,6 +10529,15 @@
 	},
 /turf/open/floor/almayer/sterile_green_corner,
 /area/dark_was_the_night/medical)
+"JG" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/structure/machinery/light/double/blue{
+	light_color = "#dae2ff"
+	},
+/turf/open/floor/almayer,
+/area/dark_was_the_night/hangar)
 "JH" = (
 /obj/structure/surface/table/reinforced/prison,
 /turf/open/floor/almayer,
@@ -10789,6 +10847,15 @@
 "KZ" = (
 /turf/open/floor/almayer/edge/smooth/corner/west,
 /area/dark_was_the_night/upper_hallway)
+"Lb" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/machinery/light/double/blue{
+	light_color = "#dae2ff"
+	},
+/turf/open/floor/almayer,
+/area/dark_was_the_night/hangar)
 "Lc" = (
 /obj/structure/platform{
 	dir = 4
@@ -12163,6 +12230,9 @@
 /obj/structure/machinery/power/apc/almayer/south,
 /turf/open/floor/strata/white_cyan2/west,
 /area/dark_was_the_night/bathroom)
+"Rv" = (
+/turf/open/space/basic,
+/area/dark_was_the_night)
 "Rw" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S"
@@ -12228,6 +12298,10 @@
 /obj/item/clothing/head/helmet/marine/unsc/motion,
 /turf/open/floor/almayer,
 /area/dark_was_the_night/armory)
+"RW" = (
+/obj/structure/machinery/computer/helm,
+/turf/open/floor/almayer/redfull,
+/area/dark_was_the_night)
 "RZ" = (
 /obj/structure/desertdam/decals/road_stop{
 	icon_state = "stop_decal3"
@@ -13760,6 +13834,9 @@
 /obj/structure/window/framed/unsc,
 /turf/open/shuttle/escapepod/floor4,
 /area/dark_was_the_night/medical)
+"Zk" = (
+/turf/open/floor/almayer/redfull,
+/area/space)
 "Zl" = (
 /obj/structure/machinery/camera/autoname/golden_arrow{
 	dir = 1
@@ -17758,11 +17835,11 @@ tG
 tG
 tG
 tG
-tG
-tG
-tG
-tG
-tG
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
 tG
@@ -17902,19 +17979,19 @@ tG
 "}
 (27,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
 tG
 tG
 tG
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
 tG
@@ -18054,19 +18131,19 @@ tG
 "}
 (28,1,1) = {"
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
 tG
@@ -18206,18 +18283,18 @@ tG
 "}
 (29,1,1) = {"
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
 tG
@@ -18358,22 +18435,22 @@ tG
 "}
 (30,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+BQ
+NU
+NU
 GR
 GR
 mH
@@ -18510,22 +18587,22 @@ tG
 "}
 (31,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
+NU
+NU
 Fz
 YE
 Yk
@@ -18662,22 +18739,22 @@ tG
 "}
 (32,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
+RW
+NU
 Fz
 DJ
 jy
@@ -18814,22 +18891,22 @@ tG
 "}
 (33,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
+NU
 wk
 GR
 av
@@ -18966,22 +19043,22 @@ tG
 "}
 (34,1,1) = {"
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
+NU
+NU
 wk
 GR
 oW
@@ -19122,18 +19199,18 @@ tG
 tG
 tG
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+qB
+NU
+NU
 wk
 GR
 dR
@@ -19275,17 +19352,17 @@ tG
 tG
 tG
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
+qC
+NU
 Fz
 YE
 ox
@@ -19428,16 +19505,16 @@ tG
 tG
 tG
 tG
+Rv
+Rv
+Rv
+Rv
+Rv
 tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+BQ
+NU
+NU
 Fz
 DJ
 au
@@ -19581,14 +19658,14 @@ tG
 tG
 tG
 tG
+Rv
+Rv
+Rv
+Rv
 tG
 tG
-tG
-tG
-tG
-tG
-tG
-tG
+NU
+NU
 tG
 GR
 GR
@@ -28718,7 +28795,7 @@ cD
 cD
 cD
 cD
-cD
+CU
 cD
 cD
 cD
@@ -30436,8 +30513,8 @@ dL
 dL
 dL
 dL
-dL
-dL
+mC
+mC
 dL
 dL
 dL
@@ -30588,8 +30665,8 @@ dL
 dL
 dL
 dL
-dL
-dL
+yG
+JG
 dL
 dL
 mC
@@ -30739,9 +30816,9 @@ dL
 dL
 dL
 dL
-dL
-dL
-dL
+xd
+Wz
+KX
 Dk
 KX
 Pf
@@ -30891,9 +30968,9 @@ dL
 dL
 dL
 dL
-dL
-dL
-dL
+KX
+Wz
+KX
 Wz
 KX
 KX
@@ -31043,9 +31120,9 @@ dL
 dL
 dL
 dL
-dL
-dL
-dL
+KX
+Wz
+KX
 Wz
 KX
 ci
@@ -31196,8 +31273,8 @@ dL
 dL
 dL
 dL
-dL
-dL
+zO
+Lb
 dL
 dL
 yT
@@ -31348,8 +31425,8 @@ dL
 dL
 dL
 dL
-dL
-dL
+yT
+yT
 dL
 dL
 dL
@@ -34777,10 +34854,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Fi
+Fi
+Fi
+Fi
 cD
 cD
 cD
@@ -34929,10 +35006,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Fi
+Fi
+Fi
+Fi
 cD
 cD
 cD
@@ -35081,10 +35158,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Fi
+Fi
+Fi
+Fi
 cD
 cD
 cD
@@ -35233,10 +35310,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Zk
+Bl
+Fi
+Fi
 cD
 cD
 cD
@@ -35385,10 +35462,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Zk
+Zk
+Zk
+Fi
 cD
 cD
 cD
@@ -35537,10 +35614,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Zk
+Zk
+Zk
+Fi
 cD
 cD
 cD
@@ -35689,10 +35766,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Zk
+Zk
+Fi
+Fi
 cD
 cD
 cD
@@ -35841,10 +35918,10 @@ cD
 cD
 cD
 cD
-cD
-cD
-cD
-cD
+Fi
+Fi
+Fi
+Fi
 cD
 cD
 cD

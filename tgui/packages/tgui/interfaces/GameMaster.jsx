@@ -15,7 +15,7 @@ export const GameMaster = (props, context) => {
   const { data, act } = useBackend();
 
   return (
-    <Window width={400} height={500}>
+    <Window width={400} height={700}>
       <Window.Content scrollable>
         <Stack direction="column" grow>
           <GameMasterSpawningPanel />
@@ -27,6 +27,12 @@ export const GameMaster = (props, context) => {
           <GameMasterCommunicationPanel />
 
           <GameMasterRecordPanel />
+
+          <GameMasterShipPanel />
+
+          <GameMasterBeaconPanel />
+
+          <GameMasterCovenantPanel />
         </Stack>
       </Window.Content>
     </Window>
@@ -273,6 +279,66 @@ export const GameMasterRecordPanel = (props, context) => {
           }}
         >
           Create record for person on click
+        </Button>
+      </Stack.Item>
+    </Section>
+  );
+};
+
+export const GameMasterShipPanel = (props, context) => {
+  const { act } = useBackend();
+
+  return (
+    <Section title="Ships">
+      <Stack.Item>
+        <Button
+          ml={1}
+          onClick={() => {
+            act('spawn_ship_menu');
+          }}
+        >
+          Spawn Ship
+        </Button>
+      </Stack.Item>
+    </Section>
+  );
+};
+
+export const GameMasterCovenantPanel = (props, context) => {
+  const { data, act } = useBackend();
+
+  return (
+    <Section title="Covenant">
+      <Stack direction="column">
+        <Stack.Item>
+          <Button.Checkbox
+            ml={1}
+            checked={data.sangheili_melee_behaviors_enabled}
+            onClick={() => {
+              act('toggle_sangheili_melee_behaviors');
+            }}
+          >
+            Sangheili Melee Behaviors
+          </Button.Checkbox>
+        </Stack.Item>
+      </Stack>
+    </Section>
+  );
+};
+
+export const GameMasterBeaconPanel = (props, context) => {
+  const { act } = useBackend();
+
+  return (
+    <Section title="Boarding Beacons">
+      <Stack.Item>
+        <Button
+          ml={1}
+          onClick={() => {
+            act('place_boarding_beacon');
+          }}
+        >
+          Place Boarding Beacon
         </Button>
       </Stack.Item>
     </Section>
