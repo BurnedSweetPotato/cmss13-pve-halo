@@ -28,6 +28,11 @@
 	name = "Unggoy Heavy (Plasma Rifle)"
 	desc = "TBD"
 	path = /datum/equipment_preset/covenant/unggoy/heavy/plasma_rifle
+
+/datum/human_ai_equipment_preset/covenant/unggoy/heavy/fuel_rod_cannon
+	name = "Unggoy Heavy (Fuel Rod Cannon)"
+	desc = "An Unggoy Heavy armed with a Type-33 fuel rod launcher and spare magazines."
+	path = /datum/equipment_preset/covenant/unggoy/heavy/fuel_rod_cannon
 //
 
 /datum/human_ai_equipment_preset/covenant/unggoy/ultra/plasma_rifle

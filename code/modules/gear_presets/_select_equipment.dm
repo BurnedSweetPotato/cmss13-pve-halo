@@ -9,6 +9,7 @@
 #define UPP_ETHNICITY "Progressive"
 #define CHINESE_ETHNICITY "Chinese"
 #define BRAZILIAN_ETHNICITY "Brazilian"
+#define HURAGOK_ETHNICITY "Huragok"
 
 /datum/equipment_preset
 	var/name = "Preset"
@@ -265,6 +266,9 @@
 				new_human.f_style = pick("Shaved", "Shaved", "Shaved", "Shaved", "Shaved", "Shaved", "3 O'clock Shadow", "3 O'clock Shadow", "3 O'clock Shadow", "3 O'clock Moustache", "5 O'clock Shadow", "5 O'clock Moustache", "7 O'clock Shadow", "7 O'clock Moustache",)
 			else
 				new_human.h_style = pick("Undercut, Top", "CIA", "Mulder", "Pixie Cut Left", "Pixie Cut Right", "Scully", "Pvt. Redding", "Bun", "Short Bangs")
+			new_human.change_real_name(new_human, random_name)
+		if(HURAGOK_ETHNICITY)
+			random_name = "Huragok"
 			new_human.change_real_name(new_human, random_name)
 	new_human.age = rand(18,55)
 

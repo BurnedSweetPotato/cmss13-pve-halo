@@ -50,6 +50,21 @@
 		/datum/equipment_preset/covenant/unggoy/ultra/needler = 1,
 	)
 
+/datum/human_ai_squad_preset/covenant/unggoy/fuel_rod_heavy
+	name = "Fuel Rod Heavy (Unggoy)"
+	desc = "A single Unggoy Heavy armed with a Type-33 fuel rod cannon and spare magazines."
+	ai_to_spawn = list(
+		/datum/equipment_preset/covenant/unggoy/heavy/fuel_rod_cannon = 1,
+	)
+
+/datum/human_ai_squad_preset/covenant/unggoy/fuel_rod_fire_team
+	name = "Fire Team (Fuel Rod, Unggoy)"
+	desc = "A Fuel Rod Heavy escorted by two Unggoy Majors with plasma pistols."
+	ai_to_spawn = list(
+		/datum/equipment_preset/covenant/unggoy/heavy/fuel_rod_cannon = 1,
+		/datum/equipment_preset/covenant/unggoy/major/plasma_pistol = 2,
+	)
+
 /datum/human_ai_squad_preset/covenant/unggoy/sangheili_ultra_levy
 	name = "Sangheili Ultra Team (Unggoy)"
 	desc = "Typically serving as military advisors or operating on independent missions, Ultras are often found together. Sangheili Ultra and Unggoy Ultra equipped with plasma rifles, as well as an Unggoy Ultra with a needler."

@@ -57,7 +57,8 @@ GLOBAL_LIST_EMPTY(human_ai_equipment_presets)
 			if(!gotten_path)
 				return
 
-			var/mob/living/carbon/human/ai_human = new()
+			var/ai_mob_type = gotten_path::spawner_mob_type
+			var/mob/living/carbon/human/ai_human = new ai_mob_type()
 			ai_human.AddComponent(/datum/component/human_ai)
 
 			arm_equipment(ai_human, gotten_path::path, TRUE)
@@ -96,3 +97,5 @@ GLOBAL_LIST_EMPTY(human_ai_equipment_presets)
 	var/faction = FACTION_NEUTRAL
 	/// The /datum/equipment_preset that this preset should create
 	var/path
+	/// Mob subtype to spawn. Defaults to /mob/living/carbon/human. Override for NPCs that need custom proc overrides.
+	var/spawner_mob_type = /mob/living/carbon/human
