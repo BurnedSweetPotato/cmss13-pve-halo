@@ -62,6 +62,9 @@
 #define MAP_ONI_DIGSITE_451 "ONI Digsite 451"
 #define MAP_TRAXUS_GAMMA_ZONE "Gamma Sector" //HALO
 #define MAP_STRATEGOS_ISLAND "Strategos Island" //HALO MP map mash-up
+#define MAP_JUNGLE_DELTA "Jungle Delta" //Featureless Jungle
+#define MAP_PROSPECTOR_CANYON "Prospector Canyon"//Mostly Featureless Desert canyon
+#define MAP_ARCTIC_VALLEY "Arctic Valley"//Featureless Arctic
 
 #define GAMEMODE_WHISKEY_OUTPOST "Whiskey Outpost"
 #define MAP_HALO_FOREST_VALLEY "New Irvine - Forest Valley"
