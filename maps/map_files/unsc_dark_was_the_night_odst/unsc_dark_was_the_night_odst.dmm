@@ -661,13 +661,13 @@
 /turf/open/floor/almayer/edge/smooth/east,
 /area/dark_was_the_night/ready_bay)
 "bM" = (
-/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/ft1,
 /obj/structure/machinery/light/small/blue/golden_arrow{
 	dir = 4
 	},
 /obj/structure/sign/safety/one{
 	pixel_x = 32
 	},
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst/ft1,
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "bN" = (
@@ -908,7 +908,9 @@
 /area/dark_was_the_night/armory)
 "cs" = (
 /obj/structure/closet/secure_closet/halo/job_locker/squad_leader,
-/obj/item/clothing/head/helmet/marine/unsc/odst/motion,
+/obj/item/clothing/head/helmet/marine/odst/squadleader,
+/obj/item/clothing/suit/storage/marine/odst/squadleader,
+/obj/item/storage/backpack/marine/odst/squadleader,
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "ct" = (
@@ -939,11 +941,11 @@
 /area/dark_was_the_night/lower_hallway)
 "cx" = (
 /obj/structure/closet/secure_closet/halo/job_locker/fireteam_leader/ft1,
-/obj/item/clothing/head/helmet/marine/unsc/odst/motion,
 /obj/structure/sign/safety/one{
 	pixel_y = 24;
 	pixel_x = 8
 	},
+/obj/item/clothing/head/helmet/marine/odst/motion,
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "cy" = (
@@ -956,11 +958,11 @@
 /area/dark_was_the_night/upper_hallway)
 "cz" = (
 /obj/structure/closet/secure_closet/halo/job_locker/fireteam_leader/ft2,
-/obj/item/clothing/head/helmet/marine/unsc/odst/motion,
 /obj/structure/sign/safety/two{
 	pixel_x = 8;
 	pixel_y = 24
 	},
+/obj/item/clothing/head/helmet/marine/odst/motion,
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "cA" = (
@@ -1114,6 +1116,21 @@
 /obj/structure/surface/table/reinforced/almayer_B,
 /turf/open/floor/almayer,
 /area/dark_was_the_night/cryo_hall)
+"dU" = (
+/obj/structure/surface/table/reinforced/almayer_B,
+/obj/item/clothing/head/helmet/marine/odst/cqb{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/item/clothing/suit/storage/marine/odst/cqb{
+	pixel_x = -7
+	},
+/obj/item/storage/backpack/marine/odst/cqb{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/turf/open/floor/almayer/plate,
+/area/dark_was_the_night/armory)
 "dW" = (
 /turf/open/space/basic,
 /area/dark_was_the_night/lower_hallway)
@@ -1747,6 +1764,17 @@
 /area/dark_was_the_night/cryo_hall)
 "ls" = (
 /obj/structure/surface/table/reinforced/almayer_B,
+/obj/item/clothing/head/helmet/marine/odst/engineer{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/clothing/suit/storage/marine/odst/engineer{
+	pixel_x = 5
+	},
+/obj/item/storage/backpack/marine/odst/engineer{
+	pixel_x = -5;
+	pixel_y = 5
+	},
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "lu" = (
@@ -2475,6 +2503,18 @@
 	},
 /obj/effect/decal/cleanable/dirt{
 	layer = 2.52
+	},
+/obj/item/clothing/head/helmet/marine/odst/medic{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/obj/item/clothing/suit/storage/marine/odst/medic{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/obj/item/storage/backpack/marine/odst/medic{
+	pixel_x = -5;
+	pixel_y = 4
 	},
 /turf/open/floor/almayer/sterile,
 /area/dark_was_the_night/medical)
@@ -4181,13 +4221,13 @@
 /turf/open/floor/almayer,
 /area/dark_was_the_night/upper_hallway)
 "Nz" = (
-/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/ft2,
 /obj/structure/machinery/light/small/blue/golden_arrow{
 	dir = 4
 	},
 /obj/structure/sign/safety/two{
 	pixel_x = 32
 	},
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst/ft2,
 /turf/open/floor/almayer/plate,
 /area/dark_was_the_night/armory)
 "NG" = (
@@ -12658,7 +12698,7 @@ bJ
 rf
 Lc
 sF
-ls
+dU
 bJ
 rR
 rR
