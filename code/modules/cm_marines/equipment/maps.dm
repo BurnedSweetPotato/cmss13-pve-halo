@@ -220,6 +220,11 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_ONI_SHIELD_BASE = new /obj/item/map/lv522_map(),
 		MAP_VALOROUS_CHANT = new /obj/item/map/lv522_map(),
 		MAP_686_REGRETFUL_FLAME = new /obj/item/map/lv522_map(),
+		MAP_FEATURELESS_SPACE = new /obj/item/map/lv522_map(),
+		MAP_LV522_FEATURELESS_BARRENS = new /obj/item/map/lv522_map(),
+		MAP_LV818_FEATURELESS_DESERT = new /obj/item/map/lv522_map(),
+		MAP_LV818_FEATURELESS_JUNGLE = new /obj/item/map/lv522_map(),
+		MAP_LV295_FEATURELESS_ARCTIC = new /obj/item/map/lv522_map(),
 	)
 
 //used by marine equipment machines to spawn the correct map.

@@ -58,6 +58,11 @@
 #define MAP_ONI_SHIELD_BASE "ONI Shieldbase"
 #define MAP_VALOROUS_CHANT "SDV Valorous Chant"
 #define MAP_686_REGRETFUL_FLAME "686 Regretful Flame"
+#define MAP_FEATURELESS_SPACE "Featureless Space"
+#define MAP_LV522_FEATURELESS_BARRENS "LV-522 Featureless Barrens"
+#define MAP_LV818_FEATURELESS_DESERT "LV-818 Featureless Desert"
+#define MAP_LV818_FEATURELESS_JUNGLE "LV-818 Featureless Jungle"
+#define MAP_LV295_FEATURELESS_ARCTIC "LV-295 Featureless Arctic"
 #define MAP_MACKAY_STATION "Mackay Station"
 #define MAP_ONI_DIGSITE_451 "ONI Digsite 451"
 #define MAP_TRAXUS_GAMMA_ZONE "Gamma Sector" //HALO
