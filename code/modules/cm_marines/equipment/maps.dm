@@ -218,6 +218,7 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_HALO_NEW_IRVINE_COVENANT = new /obj/item/map/lv522_map(),
 		MAP_HALO_FOREST_VALLEY = new /obj/item/map/lv522_map(),
 		MAP_ONI_SHIELD_BASE = new /obj/item/map/lv522_map(),
+		MAP_VALOROUS_CHANT = new /obj/item/map/lv522_map(),
 	)
 
 //used by marine equipment machines to spawn the correct map.

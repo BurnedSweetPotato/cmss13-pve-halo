@@ -122,6 +122,9 @@ endmap
 map oni_shield_base
 endmap
 
+map valorous_chant
+endmap
+
 map mackay_station
 endmap
 
