@@ -482,13 +482,18 @@
 // ODST VISR
 // ============================================================
 
+// ============================================================
+// ODST VISR — visual toggle only (opens/closes the helmet visor sprite)
+// IFF outlines are handled by night_vision/halo/unsc when NVG is active
+// ============================================================
+
 /obj/item/device/helmet_visor/odst_visr
 	name = "VISR"
 	desc = "Variable Interface System Recon — an integrated heads-up display and IFF system built into ODST helmets."
 	icon_state = "hud_sight"
 	action_icon_string = "hud_sight_down"
-	helmet_overlay = "" // no extra garb overlay; icon_state swap handles it
-	hud_type = list(MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ARMY, MOB_HUD_FACTION_NAVY)
+	helmet_overlay = ""
+	hud_type = list()
 
 /obj/item/device/helmet_visor/odst_visr/activate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
 	. = ..()
@@ -508,4 +513,4 @@
 /obj/item/device/helmet_visor/odst_visr/medic
 	name = "VISR/M5"
 	desc = "An advanced VISR variant installed in ODST medic helmets. Provides a medical readout of life-forms in scanning range on top of the standard IFF display."
-	hud_type = list(MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ARMY, MOB_HUD_FACTION_NAVY, MOB_HUD_MEDICAL_BASIC)
+	hud_type = list()

@@ -296,6 +296,7 @@
 	icon = 'icons/halo/obj/items/clothing/back/back_by_faction/back_unsc.dmi'
 	icon_state = "odst"
 	item_state = "odst"
+	worn_accessible = TRUE
 	item_icons = list(
 		WEAR_BACK = 'icons/halo/mob/humans/onmob/clothing/back/back_by_faction/back_unsc.dmi',
 		WEAR_L_HAND = 'icons/halo/mob/humans/onmob/items_lefthand_halo.dmi',

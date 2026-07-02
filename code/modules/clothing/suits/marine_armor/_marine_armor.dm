@@ -1074,6 +1074,8 @@
 	desc = "ODST Battle Dress Uniform with no markings for stealth — the wearer is a designated marksman. Right shoulder armor removed to improve aim; left shoulder enlarged for cover from incoming fire. EVA capable."
 	icon_state = "odst_sniper"
 	item_state = "odst_sniper"
+	storage_slots = 0
+	allowed = list(/obj/item/weapon/gun/rifle/sniper/halo)
 
 /obj/item/clothing/suit/storage/marine/odst/medic
 	name = "ODST Medic Armour"

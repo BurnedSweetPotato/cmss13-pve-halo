@@ -15,6 +15,7 @@
 	worn_y_dimension = 64
 	item_icons = list(
 		WEAR_BACK = 'icons/halo/mob/humans/onmob/clothing/back/guns_by_type/marksman_rifles_64.dmi',
+		WEAR_J_STORE = 'icons/halo/mob/humans/onmob/clothing/back/guns_by_type/marksman_rifles_64.dmi',
 		WEAR_L_HAND = 'icons/halo/mob/humans/onmob/items_lefthand_halo_64.dmi',
 		WEAR_R_HAND = 'icons/halo/mob/humans/onmob/items_righthand_halo_64.dmi'
 	)
@@ -28,7 +29,7 @@
 	current_mag = /obj/item/ammo_magazine/rifle/halo/sniper
 	force = 12
 	wield_delay = WIELD_DELAY_HORRIBLE
-	flags_equip_slot = SLOT_BLOCK_SUIT_STORE|SLOT_BACK
+	flags_equip_slot = SLOT_BACK
 	zoomdevicename = "scope"
 	attachable_allowed = list(/obj/item/attachable/srs_assembly, /obj/item/attachable/scope/variable_zoom/oracle, /obj/item/attachable/srs_barrel, /obj/item/attachable/bipod/srs_bipod)
 	starting_attachment_types = list(/obj/item/attachable/scope/variable_zoom/oracle, /obj/item/attachable/srs_barrel, /obj/item/attachable/bipod/srs_bipod)

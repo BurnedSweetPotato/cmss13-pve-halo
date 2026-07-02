@@ -161,7 +161,7 @@
 		list("Shoulder Holster", round(max(1,(scale * 0.5))), /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR", -1, null, null),
-		list("CH381 ODST helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/unsc/odst, VENDOR_ITEM_MANDATORY),
+		list("CH381 ODST helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/odst, VENDOR_ITEM_MANDATORY),
 		list("Standard M70DT ODST BDU Set", round(scale * 15), /obj/item/storage/box/guncase/odstarmor, VENDOR_ITEM_MANDATORY),
 		list("M70DT ODST BDU", round(scale * 10), /obj/item/clothing/suit/marine/unsc/odst, VENDOR_ITEM_REGULAR),
 		list("M70DT Shoulder Pads", round(scale * 10), /obj/item/clothing/accessory/pads/unsc/odst, VENDOR_ITEM_REGULAR),

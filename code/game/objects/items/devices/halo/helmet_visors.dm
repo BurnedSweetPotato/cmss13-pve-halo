@@ -16,6 +16,10 @@
 /obj/item/device/helmet_visor/night_vision/halo/unsc
 	name = "VISR v22.5606C.01"
 	desc = "The integrated VISR system features light enhancement systems, raising the brightness of the surrounding area on the user's heads-up display during low-light operations. This vision-enhancement mode also links with the user's neural interface to provide Friend or Foe designation by searching for IFF transponders on friendly or enemy personnel"
+	hud_type = list() // outlines replace faction triangle HUD
+	var/list/outlined_mobs = list()
+	var/mob/living/carbon/human/visr_wearer
+	var/obj/item/clothing/head/helmet/marine/visr_helmet
 
 #define VISR_LOWLIGHT_USAGE(delta_time) (power_cell.use(power_use * (delta_time ? delta_time : 1)))
 
@@ -106,3 +110,61 @@
 		cycle_action.set_default_overlay()
 
 #undef VISR_LOWLIGHT_USAGE
+
+/obj/item/device/helmet_visor/night_vision/halo/unsc/activate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	visr_wearer = user
+	visr_helmet = attached_helmet
+
+/obj/item/device/helmet_visor/night_vision/halo/unsc/deactivate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	_clear_visr_outlines()
+	visr_wearer = null
+	visr_helmet = null
+
+/obj/item/device/helmet_visor/night_vision/halo/unsc/proc/_clear_visr_outlines()
+	for(var/mob/M in outlined_mobs)
+		if(!QDELETED(M))
+			M.remove_filter("visr_outline")
+	outlined_mobs.Cut()
+
+/obj/item/device/helmet_visor/night_vision/halo/unsc/proc/_get_visr_color(mob/living/target)
+	if(isxeno(target))
+		return "#FF0000FF"
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		if(H.faction in FACTION_LIST_UNSC)
+			return "#00FF00FF"
+	if(target.faction == FACTION_INSURGENT || target.faction == FACTION_COVENANT || target.faction in FACTION_LIST_COVENANT)
+		return "#FF0000FF"
+	return "#FFFF00FF"
+
+/obj/item/device/helmet_visor/night_vision/halo/unsc/process(delta_time)
+	. = ..()
+	if(. == PROCESS_KILL)
+		_clear_visr_outlines()
+		return PROCESS_KILL
+	if(!visr_wearer || QDELETED(visr_wearer) || !visr_helmet || QDELETED(visr_helmet))
+		_clear_visr_outlines()
+		return PROCESS_KILL
+	if(visr_wearer.head != visr_helmet)
+		_clear_visr_outlines()
+		return
+
+	var/list/current_mobs = list()
+	for(var/mob/living/M in range(7, visr_wearer))
+		if(M == visr_wearer || M.stat == DEAD)
+			continue
+		current_mobs += M
+
+	for(var/mob/M in outlined_mobs.Copy())
+		if(!(M in current_mobs) || QDELETED(M))
+			if(!QDELETED(M))
+				M.remove_filter("visr_outline")
+			outlined_mobs -= M
+
+	var/obj/item/clothing/head/helmet/marine/odst/odst_helm = visr_helmet
+	if(!odst_helm || odst_helm.iff_enabled)
+		for(var/mob/living/M in current_mobs)
+			M.add_filter("visr_outline", 2, list("type" = "outline", "color" = _get_visr_color(M), "size" = 1))
+			outlined_mobs |= M

@@ -2023,30 +2023,64 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	desc = "An upgraded helmet of the UNSC Marine Corps, with a motion tracker. Various attachment points on the helmet allow for various equipment to be fitted to the helmet. This particular variant is used by ONI Security Forces, featuring a distinct black colour scheme."
 	motion_tracker = TRUE
 
-/obj/item/clothing/head/helmet/marine/unsc/odst
-	name = "\improper CH381 ODST helmet"
-	desc = "An iconic helmet, designed for use by Orbital-Drop-Shock-Troopers of the UNSC's Marine Corps' Special Forces. An advanced piece of equipment featuring various benefits: a polarizing visor, VISR optical software, reinforced COM unit, fully sealed environment, and a nice black finish. Commonly defaced with crude graffiti by bored helljumpers."
-	built_in_visors = list(new /obj/item/device/helmet_visor/night_vision/halo/unsc)
-	icon_state = "odst"
-	item_state = "odst"
-	flags_inventory = COVEREYES|COVERMOUTH|BLOCKSHARPOBJ|BLOCKGASEFFECT
-	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDEMASK|HIDEALLHAIR
-	armor_melee = CLOTHING_ARMOR_HIGH
-	armor_bullet = CLOTHING_ARMOR_HIGH
-	armor_laser = CLOTHING_ARMOR_MEDIUMHIGH
-	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
-	armor_internaldamage = CLOTHING_ARMOR_HIGH
-
-/obj/item/clothing/head/helmet/marine/unsc/odst/motion
-	name = "\improper CH381-M ODST helmet"
-	desc = "An iconic helmet, designed for use by Orbital-Drop-Shock-Troopers of the UNSC's Marine Corps' Special Forces. An advanced piece of equipment featuring various benefits: a polarizing visor, VISR optical software, reinforced COM unit, fully sealed environment, a motion tracker, and a nice black finish. Commonly defaced with crude graffiti by bored helljumpers."
-	motion_tracker = TRUE
-
 // ============================================================
-// ODST HELMET VARIANTS (multi-role, with VISR toggle)
+// ODST HELMET VARIANTS (multi-role, with VISR toggle + NVG)
 // obj icon  : icons/halo/obj/items/clothing/hats/hats_by_faction/hat_unsc.dmi
 // worn icon : icons/halo/mob/humans/onmob/clothing/hats/hats_by_faction/hat_unsc.dmi
 // ============================================================
+
+// Individual action buttons replacing the generic cycle-visor button
+
+/datum/action/item_action/odst_toggle_visr
+	name = "Toggle VISR"
+
+/datum/action/item_action/odst_toggle_visr/New(obj/item/holder)
+	..()
+	name = "Toggle VISR"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, "hud_sight_down")
+
+/datum/action/item_action/odst_toggle_visr/action_activate()
+	. = ..()
+	var/obj/item/clothing/head/helmet/marine/odst/helmet = holder_item
+	if(!istype(helmet) || !owner)
+		return
+	helmet.toggle_odst_visr(owner)
+
+/datum/action/item_action/odst_toggle_nvg
+	name = "Toggle NVG"
+
+/datum/action/item_action/odst_toggle_nvg/New(obj/item/holder)
+	..()
+	name = "Toggle NVG"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, "visr_on")
+
+/datum/action/item_action/odst_toggle_nvg/action_activate()
+	. = ..()
+	var/obj/item/clothing/head/helmet/marine/odst/helmet = holder_item
+	if(!istype(helmet) || !owner)
+		return
+	helmet.toggle_nvg(owner)
+
+/datum/action/item_action/odst_toggle_iff
+	name = "Toggle IFF"
+
+/datum/action/item_action/odst_toggle_iff/New(obj/item/holder)
+	..()
+	name = "Toggle IFF"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, "hud_sight")
+
+/datum/action/item_action/odst_toggle_iff/action_activate()
+	. = ..()
+	var/obj/item/clothing/head/helmet/marine/odst/helmet = holder_item
+	if(!istype(helmet) || !owner)
+		return
+	helmet.toggle_iff(owner)
 
 /obj/item/clothing/head/helmet/marine/odst
 	name = "ODST Helmet"
@@ -2061,21 +2095,81 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	armor_laser = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGH
-	flags_inventory = BLOCKSHARPOBJ
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES
+	flags_inventory = COVEREYES|COVERMOUTH|BLOCKSHARPOBJ|BLOCKGASEFFECT
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDEMASK|HIDEALLHAIR
 	flags_cold_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE
 	flags_heat_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE
-	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr)
-	flags_marine_helmet = HELMET_SQUAD_OVERLAY|HELMET_DAMAGE_OVERLAY
+	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr, new /obj/item/device/helmet_visor/night_vision/halo/unsc)
+	flags_marine_helmet = HELMET_SQUAD_OVERLAY|HELMET_GARB_OVERLAY|HELMET_DAMAGE_OVERLAY
 
 	var/visr_active = FALSE
 	var/visr_icon_state = "odst_open"
 	var/motion_tracker = FALSE
+	var/iff_enabled = TRUE
 
 /obj/item/clothing/head/helmet/marine/odst/Initialize(mapload, list/new_protection)
 	. = ..()
 	if(motion_tracker)
 		AddComponent(/datum/component/motion_tracker_manager)
+	// Replace the single cycle-visor button with one button per visor
+	var/datum/action/item_action/cycle_helmet_huds/cycle_action = locate() in actions
+	if(cycle_action)
+		qdel(cycle_action)
+	new /datum/action/item_action/odst_toggle_visr(src)
+	new /datum/action/item_action/odst_toggle_nvg(src)
+	new /datum/action/item_action/odst_toggle_iff(src)
+
+/// Toggle the ODST VISR (visor sprite + optional medic HUD). Deactivates NVG first if active.
+/obj/item/clothing/head/helmet/marine/odst/proc/toggle_odst_visr(mob/living/carbon/human/user)
+	var/obj/item/device/helmet_visor/odst_visr/visr = locate() in built_in_visors
+	if(!visr || user.head != src)
+		return
+	// If the NVG is currently active, deactivate it
+	if(active_visor && active_visor != visr)
+		var/obj/item/device/helmet_visor/other_visor = active_visor
+		active_visor = null
+		other_visor.deactivate_visor(src, user)
+	// Toggle the VISR
+	if(active_visor == visr)
+		active_visor = null
+		visr.deactivate_visor(src, user)
+	else
+		active_visor = visr
+		visr.activate_visor(src, user)
+	update_icon()
+
+/// Toggle the NVG (night-vision + IFF outlines). Deactivates VISR first if active.
+/obj/item/clothing/head/helmet/marine/odst/proc/toggle_nvg(mob/living/carbon/human/user)
+	var/obj/item/device/helmet_visor/night_vision/nvg = locate() in built_in_visors
+	if(!nvg || user.head != src)
+		return
+	// If the ODST VISR is currently active, deactivate it
+	if(active_visor && active_visor != nvg)
+		var/obj/item/device/helmet_visor/other_visor = active_visor
+		active_visor = null
+		other_visor.deactivate_visor(src, user)
+	// Toggle the NVG
+	if(active_visor == nvg)
+		active_visor = null
+		nvg.deactivate_visor(src, user)
+	else
+		active_visor = nvg
+		nvg.activate_visor(src, user)
+	update_icon()
+
+/// Toggle VISR IFF outlines on/off independently of the NVG being active.
+/obj/item/clothing/head/helmet/marine/odst/proc/toggle_iff(mob/living/carbon/human/user)
+	var/obj/item/device/helmet_visor/night_vision/halo/unsc/nvg = locate() in built_in_visors
+	if(!nvg)
+		return
+	if(active_visor != nvg)
+		to_chat(user, SPAN_WARNING("Activate the NVG visor first to use IFF targeting."))
+		return
+	iff_enabled = !iff_enabled
+	if(!iff_enabled)
+		nvg._clear_visr_outlines()
+	var/state = iff_enabled ? "enabled" : "disabled"
+	to_chat(user, SPAN_NOTICE("IFF targeting [state]."))
 
 /obj/item/clothing/head/helmet/marine/odst/get_icon_state(mob/user_mob, slot)
 	if(slot == WEAR_HEAD && visr_active)
@@ -2107,7 +2201,41 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	icon_state = "odst_med"
 	item_state = "odst_med"
 	visr_icon_state = "odst_med_open"
-	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr/medic)
+	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr/medic, new /obj/item/device/helmet_visor/night_vision/halo/unsc)
+
+// Medhud is ON whenever the visor is closed, OFF when the visor is open, and compatible with NVG.
+/obj/item/clothing/head/helmet/marine/odst/medic/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == WEAR_HEAD)
+		_sync_medhud(user)
+
+/obj/item/clothing/head/helmet/marine/odst/medic/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(user)
+		var/datum/mob_hud/med_hud = GLOB.huds[MOB_HUD_MEDICAL_BASIC]
+		if(med_hud)
+			med_hud.remove_hud_from(user, src)
+
+/obj/item/clothing/head/helmet/marine/odst/medic/proc/_sync_medhud(mob/living/carbon/human/user)
+	if(!user)
+		return
+	var/datum/mob_hud/med_hud = GLOB.huds[MOB_HUD_MEDICAL_BASIC]
+	if(!med_hud)
+		return
+	if(visr_active) // visor open → medhud off
+		med_hud.remove_hud_from(user, src)
+	else            // visor closed → medhud on
+		med_hud.add_hud_to(user, src)
+
+/obj/item/clothing/head/helmet/marine/odst/medic/toggle_odst_visr(mob/living/carbon/human/user)
+	. = ..()
+	if(user && user.head == src)
+		_sync_medhud(user)
+
+/obj/item/clothing/head/helmet/marine/odst/medic/toggle_nvg(mob/living/carbon/human/user)
+	. = ..()
+	if(user && user.head == src)
+		_sync_medhud(user)
 
 /obj/item/clothing/head/helmet/marine/odst/engineer
 	name = "ODST Engineer Helmet"
