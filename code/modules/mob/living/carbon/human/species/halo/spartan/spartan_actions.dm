@@ -22,7 +22,7 @@
 		to_chat(owner, SPAN_WARNING("You can't do that yet..."))
 		return
 
-	if (!affected_atom)
+	if (!istype(affected_atom, /mob/living/carbon))
 		return
 
 	if (!isturf(owner.loc))

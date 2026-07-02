@@ -135,7 +135,7 @@
 		var/mob/living/carbon/human/H = target
 		if(H.faction in FACTION_LIST_UNSC)
 			return "#00FF00FF"
-	if(target.faction == FACTION_INSURGENT || target.faction == FACTION_COVENANT || target.faction in FACTION_LIST_COVENANT)
+	if((target.faction == FACTION_INSURGENT || target.faction == FACTION_COVENANT) || (target.faction in FACTION_LIST_COVENANT))
 		return "#FF0000FF"
 	return "#FFFF00FF"
 

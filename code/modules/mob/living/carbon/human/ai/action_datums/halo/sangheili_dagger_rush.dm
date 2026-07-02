@@ -1,11 +1,3 @@
-// Suppress keep_distance while a dagger rush is running — without this it fights
-// our movement proc every tick, causing the visible step-forward/step-back jitter.
-/datum/ai_action/keep_distance/trigger_action()
-	for(var/datum/ai_action/action as anything in brain.ongoing_actions)
-		if(istype(action, /datum/ai_action/sangheili_dagger_rush))
-			return ONGOING_ACTION_COMPLETED
-	return ..()
-
 // Sangheili Dagger Rush
 //
 // On acquiring a target there is a flat chance the Sangheili commits to a melee
@@ -56,8 +48,9 @@
 	. = ..()
 	. += /datum/ai_action/walk_melee
 	. += /datum/ai_action/take_cover
-	// Intentionally NOT conflicting with fire_at_target, chase_target, keep_distance —
-	// shooting continues normally during approach, and movement procs just both run.
+	. += /datum/ai_action/keep_distance
+	// Intentionally NOT conflicting with fire_at_target or chase_target —
+	// shooting continues normally during approach.
 
 /datum/ai_action/sangheili_dagger_rush/Added()
 	charging = TRUE

@@ -226,8 +226,8 @@
 	var/obj/effect/overmap/ship/adj = get_adjacent_ship()
 	.["extended"] = !!(active_tube && active_tube.ready)
 	.["adjacent_ship"] = adj ? "[adj.name] (z=[adj.ship_z])" : "None"
-	.["local_hatch"] = !!get_local_hatches().len
-	.["remote_hatch"] = !!get_remote_hatches().len
+	.["local_hatch"] = !!length(get_local_hatches())
+	.["remote_hatch"] = !!length(get_remote_hatches())
 	.["debug_local_z"] = z
 	.["debug_link_id"] = link_id
 
