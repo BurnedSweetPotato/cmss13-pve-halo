@@ -2036,7 +2036,6 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	desc = "An iconic helmet, designed for use by Orbital-Drop-Shock-Troopers of the UNSC's Marine Corps' Special Forces. An advanced piece of equipment featuring various benefits: a polarizing visor, VISR optical software, reinforced COM unit, fully sealed environment, a motion tracker, and a nice black finish. Commonly defaced with crude graffiti by bored helljumpers."
 	motion_tracker = TRUE
 
-<<<<<<< HEAD
 // ============================================================
 // ODST HELMET VARIANTS (multi-role, with VISR toggle)
 // obj icon  : icons/halo/obj/items/clothing/hats/hats_by_faction/hat_unsc.dmi
