@@ -271,6 +271,53 @@
 		WEAR_L_HAND = 'icons/halo/mob/humans/onmob/items_lefthand_halo.dmi',
 		WEAR_R_HAND = 'icons/halo/mob/humans/onmob/items_righthand_halo.dmi')
 
+// ============================================================
+// ODST BACKPACKS
+// obj icon  : icons/halo/obj/items/clothing/back/back_by_faction/back_unsc.dmi
+// worn icon : icons/halo/mob/humans/onmob/clothing/back/back_by_faction/back_unsc.dmi
+// ============================================================
+
+/obj/item/storage/backpack/marine/odst
+	name = "ODST backpack"
+	desc = "Standard-issue backpack for an ODST rifleman."
+	icon = 'icons/halo/obj/items/clothing/back/back_by_faction/back_unsc.dmi'
+	icon_state = "odst"
+	item_state = "odst"
+	item_icons = list(
+		WEAR_BACK = 'icons/halo/mob/humans/onmob/clothing/back/back_by_faction/back_unsc.dmi',
+		WEAR_L_HAND = 'icons/halo/mob/humans/onmob/items_lefthand_halo.dmi',
+		WEAR_R_HAND = 'icons/halo/mob/humans/onmob/items_righthand_halo.dmi')
+
+/obj/item/storage/backpack/marine/odst/cqb
+	name = "ODST CQB backpack"
+	desc = "Standard-issue backpack for an ODST CQB trooper."
+	icon_state = "odst_cqb"
+	item_state = "odst_cqb"
+
+/obj/item/storage/backpack/marine/odst/medic
+	name = "ODST medic backpack"
+	desc = "Standard-issue backpack for an ODST combat medic."
+	icon_state = "odst_med"
+	item_state = "odst_med"
+
+/obj/item/storage/backpack/marine/odst/sharpshooter
+	name = "ODST sharpshooter backpack"
+	desc = "Standard-issue backpack for an ODST sharpshooter."
+	icon_state = "odst_sniper"
+	item_state = "odst_sniper"
+
+/obj/item/storage/backpack/marine/odst/engineer
+	name = "ODST engineer backpack"
+	desc = "Standard-issue backpack for an ODST combat engineer."
+	icon_state = "odst_engi"
+	item_state = "odst_engi"
+
+/obj/item/storage/backpack/marine/odst/squadleader
+	name = "ODST squad leader backpack"
+	desc = "Standard-issue backpack for an ODST squad leader."
+	icon_state = "odst_sl"
+	item_state = "odst_sl"
+
 /obj/item/storage/large_holster/spnkr
 	name = "SPNKr tube storage backpack"
 	desc = "A carrying rack complete with two individual metallic tubes, each capable of storing one M19 twin-tube unit for the M41 SPNKr, and a special harness for the launcher itself."
@@ -423,6 +470,24 @@
 	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
 	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
 	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+
+/obj/item/storage/unsc_speckit/srs99/odst
+	name = "SRS99-AM ODST equipment case"
+	desc = "A case containing the essentials for an ODST sharpshooter. Marked with the emblem of an SRS99-AM."
+	can_hold = list(/obj/item/weapon/gun/rifle/sniper/halo/unloaded, /obj/item/ammo_magazine/rifle/halo/sniper, /obj/item/clothing/suit/storage/marine/odst/sharpshooter, /obj/item/clothing/head/helmet/marine/odst/sharpshooter, /obj/item/storage/backpack/marine/odst/sharpshooter)
+	storage_slots = 10
+
+/obj/item/storage/unsc_speckit/srs99/odst/fill_preset_inventory()
+	new /obj/item/weapon/gun/rifle/sniper/halo/unloaded(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/ammo_magazine/rifle/halo/sniper(src)
+	new /obj/item/clothing/suit/storage/marine/odst/sharpshooter(src)
+	new /obj/item/clothing/head/helmet/marine/odst/sharpshooter(src)
+	new /obj/item/storage/backpack/marine/odst/sharpshooter(src)
 
 
 //======================

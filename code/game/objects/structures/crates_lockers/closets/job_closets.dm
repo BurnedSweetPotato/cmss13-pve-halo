@@ -262,6 +262,37 @@
 	name = "fireteam two Weapons Specialist locker"
 	req_access = list(ACCESS_MARINE_SPECPREP, ACCESS_SQUAD_TWO)
 
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst
+	name = "ODST Weapons Specialist locker"
+
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst/ft1
+	name = "fireteam one ODST Weapons Specialist locker"
+	req_access = list(ACCESS_MARINE_SPECPREP, ACCESS_SQUAD_ONE)
+
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst/ft2
+	name = "fireteam two ODST Weapons Specialist locker"
+	req_access = list(ACCESS_MARINE_SPECPREP, ACCESS_SQUAD_TWO)
+
+/obj/structure/closet/secure_closet/halo/job_locker/weapons_spec/odst/equipment_giver(mob/living/user)
+	var/static/list/spec_equipment_list = list(
+		"SPNKr kit" = /obj/item/storage/unsc_speckit/spnkr,
+		"SRS99-AM ODST kit" = /obj/item/storage/unsc_speckit/srs99/odst,
+		)
+
+	var/chosen_kit = tgui_input_list(user, "Equipment Selection", "Select your equipment", spec_equipment_list)
+
+	if(!chosen_kit)
+		to_chat(user, SPAN_WARNING("You decide to think on it."))
+		return
+
+	if(claimed)
+		to_chat(user, SPAN_WARNING("You already got a kit!"))
+		return
+
+	chosen_kit = spec_equipment_list[chosen_kit]
+	claimed = TRUE
+	new chosen_kit(src)
+
 /obj/structure/closet/secure_closet/halo/job_locker/fireteam_leader
 	name = "Fireteam Leader locker"
 	req_access = list(ACCESS_MARINE_TL_PREP)

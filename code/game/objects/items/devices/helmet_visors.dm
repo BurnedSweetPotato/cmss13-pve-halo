@@ -477,3 +477,35 @@
 	icon_state = "po_visor_yellow"
 	action_icon_string = "po_visor_yellow_down"
 	helmet_overlay = "po_visor_yellow_marine"
+
+// ============================================================
+// ODST VISR
+// ============================================================
+
+/obj/item/device/helmet_visor/odst_visr
+	name = "VISR"
+	desc = "Variable Interface System Recon — an integrated heads-up display and IFF system built into ODST helmets."
+	icon_state = "hud_sight"
+	action_icon_string = "hud_sight_down"
+	helmet_overlay = "" // no extra garb overlay; icon_state swap handles it
+	hud_type = list(MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ARMY, MOB_HUD_FACTION_NAVY)
+
+/obj/item/device/helmet_visor/odst_visr/activate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	var/obj/item/clothing/head/helmet/marine/odst/odst_helmet = attached_helmet
+	if(odst_helmet)
+		odst_helmet.visr_active = TRUE
+
+/obj/item/device/helmet_visor/odst_visr/deactivate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	var/obj/item/clothing/head/helmet/marine/odst/odst_helmet = attached_helmet
+	if(odst_helmet)
+		odst_helmet.visr_active = FALSE
+
+/obj/item/device/helmet_visor/odst_visr/get_helmet_examine_text()
+	return SPAN_NOTICE("Its VISR display is active.")
+
+/obj/item/device/helmet_visor/odst_visr/medic
+	name = "VISR/M5"
+	desc = "An advanced VISR variant installed in ODST medic helmets. Provides a medical readout of life-forms in scanning range on top of the standard IFF display."
+	hud_type = list(MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ARMY, MOB_HUD_FACTION_NAVY, MOB_HUD_MEDICAL_BASIC)

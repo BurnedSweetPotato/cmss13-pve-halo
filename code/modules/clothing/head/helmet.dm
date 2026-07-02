@@ -2034,3 +2034,86 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	name = "\improper CH381-M ODST helmet"
 	desc = "An iconic helmet, designed for use by Orbital-Drop-Shock-Troopers of the UNSC's Marine Corps' Special Forces. An advanced piece of equipment featuring various benefits: a polarizing visor, VISR optical software, reinforced COM unit, fully sealed environment, a motion tracker, and a nice black finish. Commonly defaced with crude graffiti by bored helljumpers."
 	motion_tracker = TRUE
+
+// ============================================================
+// ODST HELMET VARIANTS (multi-role, with VISR toggle)
+// obj icon  : icons/halo/obj/items/clothing/hats/hats_by_faction/hat_unsc.dmi
+// worn icon : icons/halo/mob/humans/onmob/clothing/hats/hats_by_faction/hat_unsc.dmi
+// ============================================================
+
+/obj/item/clothing/head/helmet/marine/odst
+	name = "ODST Helmet"
+	desc = "The helmet of the standard Orbital Drop Shock Trooper Battle Dress Uniform. Standard grey markings denote a rifleman. EVA capable, protective, and lightweight."
+	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
+	icon = 'icons/halo/obj/items/clothing/hats/hats_by_faction/hat_unsc.dmi'
+	icon_state = "odst"
+	item_icons = list(WEAR_HEAD = 'icons/halo/mob/humans/onmob/clothing/hats/hats_by_faction/hat_unsc.dmi')
+	item_state = "odst"
+	armor_melee = CLOTHING_ARMOR_HIGH
+	armor_bullet = CLOTHING_ARMOR_HIGH
+	armor_laser = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
+	armor_internaldamage = CLOTHING_ARMOR_HIGH
+	flags_inventory = BLOCKSHARPOBJ
+	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES
+	flags_cold_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE
+	flags_heat_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE
+	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr)
+	flags_marine_helmet = HELMET_SQUAD_OVERLAY|HELMET_DAMAGE_OVERLAY
+
+	var/visr_active = FALSE
+	var/visr_icon_state = "odst_open"
+	var/motion_tracker = FALSE
+
+/obj/item/clothing/head/helmet/marine/odst/Initialize(mapload, list/new_protection)
+	. = ..()
+	if(motion_tracker)
+		AddComponent(/datum/component/motion_tracker_manager)
+
+/obj/item/clothing/head/helmet/marine/odst/get_icon_state(mob/user_mob, slot)
+	if(slot == WEAR_HEAD && visr_active)
+		return visr_icon_state
+	return ..()
+
+/obj/item/clothing/head/helmet/marine/odst/motion
+	name = "ODST Helmet (Motion)"
+	desc = "The helmet of the standard Orbital Drop Shock Trooper Battle Dress Uniform, fitted with an integrated motion tracker. Standard grey markings denote a rifleman. EVA capable, protective, and lightweight."
+	motion_tracker = TRUE
+
+/obj/item/clothing/head/helmet/marine/odst/cqb
+	name = "ODST CQB Helmet"
+	desc = "ODST Battle Dress Uniform helmet with bright red markings — this trooper specializes in Close Quarters Battle. EVA capable."
+	icon_state = "odst_cqb"
+	item_state = "odst_cqb"
+	visr_icon_state = "odst_cqb_open"
+
+/obj/item/clothing/head/helmet/marine/odst/sharpshooter
+	name = "ODST Sharpshooter Helmet"
+	desc = "ODST Battle Dress Uniform helmet with no markings to enhance stealth — the wearer is a designated marksman. Features an integrated VISR/S2 Marksman Goggles set with rangefinder and barometer. EVA capable."
+	icon_state = "odst_sniper"
+	item_state = "odst_sniper"
+	visr_icon_state = "odst_sniper_open"
+
+/obj/item/clothing/head/helmet/marine/odst/medic
+	name = "ODST Medic Helmet"
+	desc = "ODST Battle Dress Uniform helmet with maroon markings — the wearer is a designated combat medic. Features a VISR/M5 with medical readout for life-forms in scanning range. EVA capable."
+	icon_state = "odst_med"
+	item_state = "odst_med"
+	visr_icon_state = "odst_med_open"
+	built_in_visors = list(new /obj/item/device/helmet_visor/odst_visr/medic)
+
+/obj/item/clothing/head/helmet/marine/odst/engineer
+	name = "ODST Engineer Helmet"
+	desc = "ODST Battle Dress Uniform helmet with orange markings — the wearer is a designated combat engineer. Features a polarized welding visor. EVA capable."
+	icon_state = "odst_engi"
+	item_state = "odst_engi"
+	visr_icon_state = "odst_engi_open"
+	eye_protection = EYE_PROTECTION_WELDING
+
+/obj/item/clothing/head/helmet/marine/odst/squadleader
+	name = "ODST Squad Leader Helmet"
+	desc = "ODST Battle Dress Uniform helmet with blue markings — the wearer is an NCO or officer. Equipped with an AN/PCK-221 FARNDALE Command Network Module on the left side for real-time UNSC Battle Network communication. EVA capable."
+	icon_state = "odst_sl"
+	item_state = "odst_sl"
+	visr_icon_state = "odst_sl_open"
+	motion_tracker = TRUE

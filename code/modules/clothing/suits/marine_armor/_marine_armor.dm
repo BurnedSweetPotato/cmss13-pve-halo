@@ -1039,3 +1039,56 @@
 	armor_laser = CLOTHING_ARMOR_MEDIUM
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
+
+/obj/item/clothing/suit/storage/marine/odst
+	name = "ODST Rifleman Armour"
+	desc = "The armor of the standard Orbital Drop Shock Trooper Battle Dress Uniform. Standard grey markings denote a rifleman. EVA capable, protective, and lightweight. Contains miniature servomotors that provide a slight speed increase."
+	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
+	icon = 'icons/halo/obj/items/clothing/suits/suits_by_faction/suit_unsc.dmi'
+	icon_state = "odst"
+	item_state = "odst"
+	item_icons = list(WEAR_JACKET = 'icons/halo/mob/humans/onmob/clothing/suits/suits_by_faction/suit_unsc.dmi')
+	blood_overlay_type = "armor"
+	armor_melee = CLOTHING_ARMOR_HIGH
+	armor_bullet = CLOTHING_ARMOR_HIGH
+	armor_laser = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
+	armor_internaldamage = CLOTHING_ARMOR_HIGH
+	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
+	flags_cold_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS|BODY_FLAG_FEET|BODY_FLAG_HANDS
+	flags_heat_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS|BODY_FLAG_FEET|BODY_FLAG_HANDS
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	flags_marine_armor = ARMOR_SQUAD_OVERLAY
+	storage_slots = 0
+	valid_accessory_slots = list(ACCESSORY_SLOT_MEDAL, ACCESSORY_SLOT_M3UTILITY, ACCESSORY_SLOT_PONCHO)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_M3UTILITY)
+
+/obj/item/clothing/suit/storage/marine/odst/cqb
+	name = "ODST CQB Armour"
+	desc = "ODST Battle Dress Uniform with deep red markings — specialized for Close Quarters Battle. Features additional up-armoring on the chest and legs. EVA capable."
+	icon_state = "odst_cqb"
+	item_state = "odst_cqb"
+
+/obj/item/clothing/suit/storage/marine/odst/sharpshooter
+	name = "ODST Sharpshooter Armour"
+	desc = "ODST Battle Dress Uniform with no markings for stealth — the wearer is a designated marksman. Right shoulder armor removed to improve aim; left shoulder enlarged for cover from incoming fire. EVA capable."
+	icon_state = "odst_sniper"
+	item_state = "odst_sniper"
+
+/obj/item/clothing/suit/storage/marine/odst/medic
+	name = "ODST Medic Armour"
+	desc = "ODST Battle Dress Uniform with maroon markings — the wearer is a designated combat medic. EVA capable."
+	icon_state = "odst_med"
+	item_state = "odst_med"
+
+/obj/item/clothing/suit/storage/marine/odst/engineer
+	name = "ODST Engineer Armour"
+	desc = "ODST Battle Dress Uniform with orange markings — the wearer is a designated combat engineer. EVA capable."
+	icon_state = "odst_engi"
+	item_state = "odst_engi"
+
+/obj/item/clothing/suit/storage/marine/odst/squadleader
+	name = "ODST Squad Leader Armour"
+	desc = "ODST Battle Dress Uniform with blue markings - the wearer is an NCO or officer. EVA capable."
+	icon_state = "odst_sl"
+	item_state = "odst_sl"
