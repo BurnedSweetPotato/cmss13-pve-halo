@@ -57,6 +57,7 @@
 #define MAP_HALO_NEW_IRVINE_COVENANT "New Irvine (Covenant)"
 #define MAP_ONI_SHIELD_BASE "ONI Shieldbase"
 #define MAP_VALOROUS_CHANT "SDV Valorous Chant"
+#define MAP_686_REGRETFUL_FLAME "686 Regretful Flame"
 #define MAP_MACKAY_STATION "Mackay Station"
 #define MAP_ONI_DIGSITE_451 "ONI Digsite 451"
 #define MAP_TRAXUS_GAMMA_ZONE "Gamma Sector" //HALO
