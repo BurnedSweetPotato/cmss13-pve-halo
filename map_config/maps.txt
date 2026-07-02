@@ -119,6 +119,9 @@ endmap
 map halo_forest_valley
 endmap
 
+map oni_shield_base
+endmap
+
 map mackay_station
 endmap
 
