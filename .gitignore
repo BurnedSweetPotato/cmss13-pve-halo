@@ -38,3 +38,9 @@ libprof.so
 
 # OpenDream compatibility stuff
 colonialmarines.json
+/config
+/icons/lobby
+sound/lobby/halo_1.ogg
+tools/localhost-asset-webroot-server.py
+tools/localhost-asset-webroot-server.py
+tools/localhost-asset-webroot-server.py
