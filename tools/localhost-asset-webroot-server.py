@@ -11,5 +11,5 @@ class CORSRequestHandler(SimpleHTTPRequestHandler):
 
 os.makedirs('../data/asset-store/', exist_ok=True)
 os.chdir('../data/asset-store/')
-httpd = HTTPServer(('localhost', 58715), CORSRequestHandler)
+httpd = HTTPServer(('0.0.0.0', 58715), CORSRequestHandler)
 httpd.serve_forever()
